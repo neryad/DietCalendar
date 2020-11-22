@@ -1,0 +1,7 @@
+{
+  "name": "dietCal",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
