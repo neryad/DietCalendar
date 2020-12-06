@@ -1,20 +1,29 @@
-<ion-header [translucent]="true">
+<ion-header no-border>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-segment scrollable mode="md" color="primary" (ionChange)="segmentChanged($event)">
+      <ion-segment-button mode="md" *ngFor="let day of days" [value]="day">
+        <ion-label text-capitalize>{{day}}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of deitaTmpTemplate | filtro: day:'dia'">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>
+            <ion-label> {{item.type}} </ion-label>
+          </ion-card-title>
+        </ion-card-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+        <ion-card-content>
+          <p>{{item.item}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
 </ion-content>
+
+<!-- (ionChange)="cambioCategoria($event)"> -->
